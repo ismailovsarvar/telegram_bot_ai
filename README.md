@@ -76,6 +76,11 @@ Ekranda quyidagicha chiqadi:
 
 ---
 
+## Ishga tushurib ko'rish mumkin
+Telegram bot kirib tekshirib ko‘rish ham mumkin, buning uchun Telegramga kirib @test_ai_25_bot deb izlaysiz va start tugmasini bosganingizdan so‘ng bot ishlaydi.
+
+---
+
 ## 🧑‍💻 Muallif
 
 **Ismailov Sarvar**  
@@ -157,6 +162,11 @@ python tgbot.py
 - С помощью кнопок можно вызывать команды `/help`, `/about`, `/feedback`.
 - Если отправить обычное сообщение, бот ответит на него с помощью Groq AI.
 - После отправки отзыва бот отвечает: `✅ Спасибо за ваш отзыв!`
+
+---
+
+## Попробуйте запустить
+Вы также можете проверить это, войдя в Telegram-бот, ища @test_ai_25_bot, и после нажатия кнопки старта бот заработает.
 
 ---
 
