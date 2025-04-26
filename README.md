@@ -46,7 +46,7 @@ GROQ_API_KEY=your_groq_api_key
 ## ▶️ Botni ishga tushirish
 
 ```bash
-python bot.py
+python tgbot.py
 ```
 
 Ekranda quyidagicha chiqadi:
@@ -130,7 +130,7 @@ GROQ_API_KEY=your_groq_api_key
 ## ▶️ Запуск бота
 
 ```bash
-python bot.py
+python tgbot.py
 ```
 
 В терминале появится сообщение:
