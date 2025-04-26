@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 **UZ** | RU
 
 # 🤖 Groq AI Telegram Bot
@@ -49,11 +48,7 @@ GROQ_API_KEY=your_groq_api_key
 ## ▶️ Botni ishga tushirish
 
 ```bash
-<<<<<<< HEAD
-python bot.py
-=======
 python tgbot.py
->>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
 ```
 
 Ekranda quyidagicha chiqadi:
@@ -83,8 +78,6 @@ Ekranda quyidagicha chiqadi:
 
 ---
 
-<<<<<<< HEAD
-=======
 ## Ishga tushurib ko'rish mumkin
 Telegram bot kirib tekshirib ko‘rish ham mumkin, buning uchun Telegramga kirib @test_ai_25_bot deb izlaysiz va start tugmasini bosganingizdan so‘ng bot ishlaydi.
 
@@ -96,8 +89,8 @@ Telegram bot kirib tekshirib ko‘rish ham mumkin, buning uchun Telegramga kirib
 **Ismailov Sarvar**  
 Telegram: @ismailovsarvarbek (https://t.me/ismailovsarvarbek)
 
-<<<<<<< HEAD
-=======
+---
+
 UZ | **RU**
 
 # 🤖 Telegram-бот Groq AI
