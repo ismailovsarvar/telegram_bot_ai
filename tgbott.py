@@ -46,14 +46,18 @@ def ask_groq(question):
     except Exception as e:
         return f"❌ Xatolik: {str(e)}"
 
+def get_inline_keyboard():
+    keyboard = [
+        [InlineKeyboardButton("📚 Yordam", callback_data="help")],
+        [InlineKeyboardButton("ℹ️ Bot haqida", callback_data="about")],
+        [InlineKeyboardButton("📝 Fikr bildirish", callback_data="feedback")],
+        [InlineKeyboardButton("❓ Savol berish", callback_data="ask")]
+    ]
+    return InlineKeyboardMarkup(keyboard)
+
 async def start_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
-        keyboard = [
-            [InlineKeyboardButton("📚 Yordam", callback_data="help")],
-            [InlineKeyboardButton("ℹ️ Bot haqida", callback_data="about")],
-            [InlineKeyboardButton("📝 Fikr bildirish", callback_data="feedback")]
-        ]
-        reply_markup = InlineKeyboardMarkup(keyboard)
+        reply_markup = get_inline_keyboard()
         
         if update.message:
             await update.message.reply_text(
@@ -80,9 +84,9 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "- Umumiy bilimlar"
     )
     if update.callback_query:
-        await update.callback_query.message.reply_text(help_text, parse_mode="HTML")
+        await update.callback_query.message.reply_text(help_text, parse_mode="HTML", reply_markup=get_inline_keyboard())
     elif update.message:
-        await update.message.reply_text(help_text, parse_mode="HTML")
+        await update.message.reply_text(help_text, parse_mode="HTML", reply_markup=get_inline_keyboard())
 
 async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     about_text = (
@@ -94,9 +98,9 @@ async def about_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Bu bot Groq AI yordamida savollarga javob beradi."
     )
     if update.callback_query:
-        await update.callback_query.message.reply_text(about_text, parse_mode="HTML")
+        await update.callback_query.message.reply_text(about_text, parse_mode="HTML", reply_markup=get_inline_keyboard())
     elif update.message:
-        await update.message.reply_text(about_text, parse_mode="HTML")
+        await update.message.reply_text(about_text, parse_mode="HTML", reply_markup=get_inline_keyboard())
 
 async def feedback_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = (
@@ -105,24 +109,35 @@ async def feedback_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         "Biz sizning fikringizni qadrlaymiz!"
     )
     if update.callback_query:
-        await update.callback_query.message.reply_text(msg)
+        await update.callback_query.message.reply_text(msg, reply_markup=get_inline_keyboard())
         context.user_data['waiting_for_feedback'] = True
     elif update.message:
-        await update.message.reply_text(msg)
+        await update.message.reply_text(msg, reply_markup=get_inline_keyboard())
         context.user_data['waiting_for_feedback'] = True
 
 async def ask_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
         if not context.args:
-            await update.message.reply_text("Iltimos, savolingizni yozing. Misol: /ask Pythonda ro'yxatni qanday saralash mumkin?")
+            await update.message.reply_text(
+                "Iltimos, savolingizni yozing. Misol: /ask Pythonda ro'yxatni qanday saralash mumkin?",
+                reply_markup=get_inline_keyboard()
+            )
             return
         
         question = " ".join(context.args)
         reply = ask_groq(question)
-        await update.message.reply_text(reply[:4000])
+        
+        # Javob bilan birga tugmalar ham yuboriladi
+        await update.message.reply_text(
+            reply[:4000],
+            reply_markup=get_inline_keyboard()
+        )
     except Exception as e:
         print(f"/ask komandasida xato: {e}")
-        await update.message.reply_text("😢 Savolingizni qayta ishlashda xato yuz berdi.")
+        await update.message.reply_text(
+            "😢 Savolingizni qayta ishlashda xato yuz berdi.",
+            reply_markup=get_inline_keyboard()
+        )
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     try:
@@ -135,6 +150,8 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await about_command(update, context)
         elif query.data == "feedback":
             await feedback_command(update, context)
+        elif query.data == "ask":
+            await ask_command(update, context)
     except Exception as e:
         print(f"Tugma bosishda xato: {e}")
         if update.callback_query and update.callback_query.message:
@@ -150,11 +167,11 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         user_input = update.message.text
         reply = ask_groq(user_input)
-        await update.message.reply_text(reply[:4000])
+        await update.message.reply_text(reply[:4000], reply_markup=get_inline_keyboard())
     except Exception as e:
         print(f"Xabar qayta ishlashda xato: {e}")
         if update.message:
-            await update.message.reply_text("😢 Xabaringizni qayta ishlashda xato yuz berdi.")
+            await update.message.reply_text("😢 Xabaringizni qayta ishlashda xato yuz berdi.", reply_markup=get_inline_keyboard())
 
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
     try:
@@ -163,9 +180,9 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE):
         
         if isinstance(update, Update):
             if update.message:
-                await update.message.reply_text("😢 Kechirasiz, texnik nosozlik yuz berdi. Iltimos, keyinroq urinib ko'ring.")
+                await update.message.reply_text("😢 Kechirasiz, texnik nosozlik yuz berdi. Iltimos, keyinroq urinib ko'ring.", reply_markup=get_inline_keyboard())
             elif update.callback_query and update.callback_query.message:
-                await update.callback_query.message.reply_text("😢 Kechirasiz, xato yuz berdi. Iltimos, /start ni bosing.")
+                await update.callback_query.message.reply_text("😢 Kechirasiz, xato yuz berdi. Iltimos, /start ni bosing.", reply_markup=get_inline_keyboard())
     except Exception as e:
         print(f"Xatoni bartaraf etishda xato: {e}")
 
