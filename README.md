@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+**UZ** | RU
+>>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
 # 🤖 Groq AI Telegram Bot
 
 Bu Telegram bot foydalanuvchilarning savollariga **Groq AI (LLaMA3-70B modeli)** yordamida javob beradi. Bot foydalanuvchi bilan muloqot qiladi, tugmalar orqali yordam beradi va fikr-mulohaza qabul qiladi.
@@ -45,7 +49,11 @@ GROQ_API_KEY=your_groq_api_key
 ## ▶️ Botni ishga tushirish
 
 ```bash
+<<<<<<< HEAD
 python bot.py
+=======
+python tgbot.py
+>>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
 ```
 
 Ekranda quyidagicha chiqadi:
@@ -75,8 +83,107 @@ Ekranda quyidagicha chiqadi:
 
 ---
 
+<<<<<<< HEAD
+=======
+## Ishga tushurib ko'rish mumkin
+Telegram bot kirib tekshirib ko‘rish ham mumkin, buning uchun Telegramga kirib @test_ai_25_bot deb izlaysiz va start tugmasini bosganingizdan so‘ng bot ishlaydi.
+
+---
+
+>>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
 ## 🧑‍💻 Muallif
 
 **Ismailov Sarvar**  
 Telegram: @ismailovsarvarbek (https://t.me/ismailovsarvarbek)
 
+<<<<<<< HEAD
+=======
+UZ | **RU**
+
+# 🤖 Telegram-бот Groq AI
+
+Этот Telegram-бот отвечает на вопросы пользователей с помощью **Groq AI (модель LLaMA3-70B)**. Бот взаимодействует с пользователем, предоставляет помощь через кнопки и принимает обратную связь.
+
+---
+
+## 📦 Используемые технологии
+
+- Python
+- `python-telegram-bot` (v20+)
+- Groq API
+- Dotenv (использование `.env` для секретных данных)
+- Асинхронные функции (`async/await`)
+
+---
+
+## ⚙️ Установка
+
+1. Клонируйте проект:
+```bash
+git clone https://github.com/foydalanuvchi/groq-telegram-bot.git
+cd groq-telegram-bot
+```
+
+2. Создайте виртуальное окружение (необязательно, но рекомендуется):
+```bash
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+venv\Scripts\activate     # Windows
+```
+
+3. Установите необходимые библиотеки:
+```bash
+pip install -r requirements.txt
+```
+
+4. Создайте файл `.env` и добавьте в него следующие строки:
+```
+TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+GROQ_API_KEY=your_groq_api_key
+```
+
+---
+
+## ▶️ Запуск бота
+
+```bash
+python tgbot.py
+```
+
+В терминале появится сообщение:
+```
+🤖 Bot ishga tushdi...
+```
+
+---
+
+## 📌 Команды пользователя
+
+| Команда     | Описание                                    |
+|-------------|----------------------------------------------|
+| `/start`    | Запуск бота и отображение кнопок            |
+| `/help`     | Меню помощи                                 |
+| `/about`    | Информация о боте                           |
+| `/feedback` | Отправить отзыв                             |
+| `/ask`      | Задать конкретный вопрос (например: `/ask Что такое Python`) |
+
+---
+
+## 💡 Дополнительно
+
+- С помощью кнопок можно вызывать команды `/help`, `/about`, `/feedback`.
+- Если отправить обычное сообщение, бот ответит на него с помощью Groq AI.
+- После отправки отзыва бот отвечает: `✅ Спасибо за ваш отзыв!`
+
+---
+
+## Попробуйте запустить
+Вы также можете проверить это, войдя в Telegram-бот, ища @test_ai_25_bot, и после нажатия кнопки старта бот заработает.
+
+---
+
+## 👨‍💻 Автор
+
+**Исмаилов Сарвар**  
+Telegram: @ismailovsarvarbek (https://t.me/ismailovsarvarbek)
+>>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
