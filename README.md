@@ -83,7 +83,6 @@ Telegram bot kirib tekshirib ko‘rish ham mumkin, buning uchun Telegramga kirib
 
 ---
 
->>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
 ## 🧑‍💻 Muallif
 
 **Ismailov Sarvar**  
