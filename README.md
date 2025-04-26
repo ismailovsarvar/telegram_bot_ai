@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 =======
 **UZ** | RU
->>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
+
 # 🤖 Groq AI Telegram Bot
 
 Bu Telegram bot foydalanuvchilarning savollariga **Groq AI (LLaMA3-70B modeli)** yordamida javob beradi. Bot foydalanuvchi bilan muloqot qiladi, tugmalar orqali yordam beradi va fikr-mulohaza qabul qiladi.
