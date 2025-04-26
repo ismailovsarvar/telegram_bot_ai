@@ -178,4 +178,3 @@ python tgbot.py
 
 **Исмаилов Сарвар**  
 Telegram: @ismailovsarvarbek (https://t.me/ismailovsarvarbek)
->>>>>>> dffe1f8920ccf7a6b794c8caa22ec90fc9368b94
